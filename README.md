@@ -10,3 +10,5 @@ HTML Layout - created using bootstrap components
 1. Decide layout columns for different courses?  Or just add to list?
 2. Will we add image to card?
 3. What information will form ask for?
+
+ https://gen-jwd-c5.github.io/myrecipeapp/

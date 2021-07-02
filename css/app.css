@@ -22,7 +22,12 @@ p {
     padding-bottom: 2.5rem;
 }
 
+ul {
+    list-style-type: none;
+}
+
 .card {
+    margin: 0 auto;
     width: 18rem;
     border-radius: 25px;
 }

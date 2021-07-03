@@ -1,3 +1,8 @@
+//initialize recipeManager
+const recipeList = new RecipeManager();
+console.log(recipeList);
+
+const form = document.querySelector("#form");
 const newRecipeTitle = document.querySelector("#recipeTitle");
 console.log("name: " + newRecipeTitle.value);
 const chooseCourse = document.querySelector("#course")
@@ -7,9 +12,7 @@ const chooseImage = document.querySelector("#chooseImage");
 const ingredients = document.querySelector("#ingredients");
 const instructions = document.querySelector("#instructions")
 
-function validFormFieldInput (data) {
 
-}
 // function to validate recipe name
 const titleErrMsg = document.querySelector("#titleErrMsg");
 const submitRecipeBtn = document.querySelector("#submitRecipe");
@@ -83,6 +86,22 @@ const validInstructions = () => {
     }
 };
 
+const validFormFieldInput = () => {
+   
+    if (validRecipeName &&
+        validCourse &&
+        validServes &&
+        validIngredients &&
+        validInstructions) {
+            recipeList.addRecipe(newRecipeTitle.value, chooseCourse.value, numServe.value, ingredients.value, instructions.value);
+            console.log(recipeList.recipes);
+        } else {
+            return null;
+        }
+   
+    form.reset()
+}
+
 // add a click event on submit button that checks all validation functions
 submitRecipeBtn.addEventListener("click", () => {
     validRecipeName();
@@ -92,9 +111,9 @@ submitRecipeBtn.addEventListener("click", () => {
     validInstructions();
 });
 
-const recipeList = new RecipeManager();
-console.log(recipeList)
-recipeList.addRecipe("cake", "dessert", 8, "milk", "bake");
-recipeList.addRecipe("sweets", "dessert", 10, "milk", "bake");
-console.log(recipeList.recipes)
+submitRecipeBtn.addEventListener("click", () => {
+    validFormFieldInput();
+} )
+
+
 

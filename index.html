@@ -58,7 +58,7 @@
           <div class="modal-content">
               <div class="modal-body"
             <!-- form for modal -->
-            <form action="#">
+            <form  id="form" action="#">
               <div class="row">
                 <div class="col">
                   <label for="recipeTitle">Recipe Name</label>
@@ -75,6 +75,7 @@
                   <label for="course">Course</label>
                   <select
                     id="course"
+                    name="course"
                     class="form-select"
                     aria-label="Default select example"
                     required
@@ -89,6 +90,7 @@
                   <input
                     id="serves"
                     type="number"
+                    name="serves"
                     class="form-control"
                     placeholder="Serves"
                     aria-label="Serves"
@@ -119,6 +121,7 @@
                   <textarea
                     class="form-control"
                     id="ingredients"
+                    name="ingredients"
                     rows="3"
                   ></textarea>
                   <div id="ingredientsErrMsg"></div>
@@ -130,6 +133,7 @@
                   <textarea
                     class="form-control"
                     id="instructions"
+                    name="instructions"
                     rows="3"
                   ></textarea>
                   <div id="instructionsErrMsg"></div>

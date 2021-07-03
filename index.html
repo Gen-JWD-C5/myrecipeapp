@@ -61,37 +61,44 @@
             <form action="#">
               <div class="row">
                 <div class="col">
-                  <label for="title">Recipe Name</label>
+                  <label for="recipeTitle">Recipe Name</label>
                   <input
-                    id="title"
+                    id="recipeTitle"
                     type="text"
+                    name="title"
                     class="form-control"
-                    placeholder="Name of recipe"
+                    placeholder=""
                     aria-label="Recipe name"
+                    
                   />
+                  <div id="titleErrMsg"></div>
                   <label for="course">Course</label>
                   <select
+                    id="course"
                     class="form-select"
                     aria-label="Default select example"
+                    required
                   >
-                    <option selected>Choose a course</option>
+                    <option value="">Choose a course</option>
                     <option value="starter">Starter/Salad</option>
                     <option value="main">Main</option>
                     <option value="dessert">Dessert</option>
                   </select>
+                  <div id="courseErrMsg"></div>
                   <label for="serves">Serves</label>
                   <input
                     id="serves"
-                    type="text"
+                    type="number"
                     class="form-control"
                     placeholder="Serves"
                     aria-label="Serves"
                   />
+                  <div id="servesErrMsg"></div>
                 </div>
                 <div class="col text-center">
                   <input
                     type="image"
-                    id="image"
+                    id="chooseImage"
                     alt="Login"
                     src="./images/chocolateCake.jpg"
                     width="150px"
@@ -114,6 +121,7 @@
                     id="ingredients"
                     rows="3"
                   ></textarea>
+                  <div id="ingredientsErrMsg"></div>
                 </div>
                 <div class="col-sm-12">
                   <label for="instructions" class="form-label"
@@ -124,7 +132,12 @@
                     id="instructions"
                     rows="3"
                   ></textarea>
+                  <div id="instructionsErrMsg"></div>
                 </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" id="submitRecipe" class="btn btn-primary" value="submit">Save recipe</button>
               </div>
             </form>
             <!-- end of form for modal -->
@@ -138,25 +151,22 @@
       
         <div class="row justify-content-center mt-3 mx-3">
             <!-- Starters column -->
-          <div  id="starter" class="col">
+          <div class="col">
             <h2 class="text-center">Starters and Salads</h2>
-            
             <ul>
                 <li>
-                          <div class="card">
-                            <img id="cardImage" src="./images/chocolateCake.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                              <h5 class="card-title">Card title</h5>
-                              <h5 >Ingredients:</h4>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                              <h5>Instructions:</h5>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                          </div>
-                    
+                    <div class="card">
+                        <img id="cardImage" src="./images/chocolateCake.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <h5 >Ingredients:</h4>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <h5>Instructions:</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
                 </li>
             </ul>
-        
           </div>
 
           <!-- Mains column -->
@@ -193,6 +203,7 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
+    <script src="./js/index.js"></script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--

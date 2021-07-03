@@ -90,5 +90,11 @@ submitRecipeBtn.addEventListener("click", () => {
     validServes();
     validIngredients();
     validInstructions();
-})
+});
+
+const recipeList = new RecipeManager();
+console.log(recipeList)
+recipeList.addRecipe("cake", "dessert", 8, "milk", "bake");
+recipeList.addRecipe("sweets", "dessert", 10, "milk", "bake");
+console.log(recipeList.recipes)
 

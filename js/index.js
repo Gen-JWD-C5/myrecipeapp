@@ -1,8 +1,7 @@
 //initialize recipeManager
 const recipeList = new RecipeManager();
-console.log(recipeList);
 
-const form = document.querySelector("#form");
+//grab elements that I want to target for validation
 const newRecipeTitle = document.querySelector("#recipeTitle");
 console.log("name: " + newRecipeTitle.value);
 const chooseCourse = document.querySelector("#course")
@@ -86,6 +85,7 @@ const validInstructions = () => {
     }
 };
 
+// function to add recipe to array if all forms fields are valid
 const validFormFieldInput = () => {
    
     if (validRecipeName &&
@@ -95,6 +95,8 @@ const validFormFieldInput = () => {
         validInstructions) {
             recipeList.addRecipe(newRecipeTitle.value, chooseCourse.value, numServe.value, ingredients.value, instructions.value);
             console.log(recipeList.recipes);
+            recipeList.render();
+            
         } else {
             return null;
         }
@@ -111,9 +113,11 @@ submitRecipeBtn.addEventListener("click", () => {
     validInstructions();
 });
 
+//add click event to add recipes to array if all fields are valid
 submitRecipeBtn.addEventListener("click", () => {
     validFormFieldInput();
 } )
+
 
 
 

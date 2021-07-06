@@ -1,7 +1,7 @@
 const createRecipeHtml = (title, course, serves, ingredients, instructions) => {
     const html = `<li>
     <div class="card">
-        <img id="cardImage" src="./images/chocolateCake.jpg" class="card-img-top" alt="...">
+        <img id="cardImage" src="" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">${title}</h5>
             <h5>${course}</h5>
@@ -10,6 +10,9 @@ const createRecipeHtml = (title, course, serves, ingredients, instructions) => {
             <p class="card-text">${ingredients}</p>
             <h5>Instructions:</h5>
             <p class="card-text">${instructions}</p>
+            <div class="text-center">
+            <button tyidpe="button" id="deleteBtn" class="btn btn-primary delete-button">Delete</button>
+            </div>
         </div>
     </div>
     </li>`;
@@ -56,4 +59,17 @@ class RecipeManager {
     const starterCol = document.querySelector("#starterCol");
     starterCol.innerHTML = recipeHtml;
 };
+
+    delete(e) {
+        const newRecipes = [];
+            for(let j = 0; j<this.recipes.length; j++) {
+                let recipe = this.recipes[j];
+                    if(e.target.id === "deleteBtn") {
+                     newRecipes.push(recipe);
+                    };
+        this.recipes = newRecipes;
+    }
 }
+}
+
+

@@ -11,10 +11,13 @@ const chooseImage = document.querySelector("#chooseImage");
 const ingredients = document.querySelector("#ingredients");
 const instructions = document.querySelector("#instructions")
 
+// grab submit button to use for event listener
+const submitRecipeBtn = document.querySelector("#submitRecipe");
+
+let validInput = 0;
 
 // function to validate recipe name
 const titleErrMsg = document.querySelector("#titleErrMsg");
-const submitRecipeBtn = document.querySelector("#submitRecipe");
 
 const validRecipeName = () => {
     console.log("in valid recipe function")
@@ -24,10 +27,9 @@ const validRecipeName = () => {
         console.log(titleErrMsg);
     } else {
         titleErrMsg.innerHTML = "";
+        validInput++
     }
 };
-
-// submitRecipeBtn.addEventListener("click", validRecipeName)
 
 // function to validate course choice
 const courseErrMsg = document.querySelector("#courseErrMsg");
@@ -40,6 +42,7 @@ const validCourse = () => {
         console.log(courseErrMsg);
     } else {
         courseErrMsg.innerHTML = "";
+        validInput++;
     }
 };
 
@@ -54,6 +57,7 @@ const validServes = () => {
         console.log(servesErrMsg);
     } else {
         servesErrMsg.innerHTML = "";
+        validInput++;
     }
 };
 
@@ -68,6 +72,7 @@ const validIngredients = () => {
         console.log(ingredientsErrMsg);
     } else {
         ingredientsErrMsg.innerHTML = "";
+        validInput++;
     }
 };
 
@@ -82,27 +87,9 @@ const validInstructions = () => {
         console.log(instructionsErrMsg);
     } else {
         instructionsErrMsg.innerHTML = "";
+        validInput++;
     }
 };
-
-// function to add recipe to array if all forms fields are valid
-const validFormFieldInput = () => {
-   
-    if (validRecipeName &&
-        validCourse &&
-        validServes &&
-        validIngredients &&
-        validInstructions) {
-            recipeList.addRecipe(newRecipeTitle.value, chooseCourse.value, numServe.value, ingredients.value, instructions.value);
-            console.log(recipeList.recipes);
-            recipeList.render();
-            
-        } else {
-            return null;
-        }
-   
-    form.reset()
-}
 
 // add a click event on submit button that checks all validation functions
 submitRecipeBtn.addEventListener("click", () => {
@@ -113,10 +100,40 @@ submitRecipeBtn.addEventListener("click", () => {
     validInstructions();
 });
 
+// function to add recipe to array if all forms fields are valid
+const validFormFieldInput = () => {
+   const form = document.querySelector("#form")
+    if (validInput === 5) {
+            recipeList.addRecipe(newRecipeTitle.value, chooseCourse.value, numServe.value, ingredients.value, instructions.value);
+            console.log(recipeList.recipes);
+            recipeList.render();
+            validInput = 0;
+        } else {
+            validInput = 0;
+        }
+   
+    form.reset()
+}
+
 //add click event to add recipes to array if all fields are valid
 submitRecipeBtn.addEventListener("click", () => {
     validFormFieldInput();
 } )
+
+//adding event to delete button 
+// const starterCol = document.querySelector("#starterCol");
+
+// starterCol.addEventListener("click", function (e) {
+    
+    
+    
+//     if(e.target.classList === "delete-button") {
+//         console.log("i target the delete button")
+//         const recipeId =number(e.target.parentElement.) 
+//     };
+//     }
+// );
+
 
 
 

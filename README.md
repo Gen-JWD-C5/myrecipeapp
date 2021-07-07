@@ -17,7 +17,6 @@ CSS
 
 JS
 1. Use 2 scripts for app.
-2. First script for logic
-3. Second script for funtionality.
+
 
  https://gen-jwd-c5.github.io/myrecipeapp/

@@ -11,4 +11,12 @@ HTML Layout - created using bootstrap components
 2. Will we add image to card?
 3. What information will form ask for?
 
+CSS 
+1. Decide which font to use
+2. Styling for cards?
+
+JS
+1. Use 2 scripts for app.
+
+
  https://gen-jwd-c5.github.io/myrecipeapp/

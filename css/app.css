@@ -22,8 +22,16 @@ p {
     padding-bottom: 2.5rem;
 }
 
+.modal-footer {
+    border: none;
+}
+
 ul {
-    list-style-type: none;
+    list-style: none;
+}
+
+.list-group-item {
+    border: none;
 }
 
 .card {
@@ -37,6 +45,10 @@ ul {
     max-height: 18rem;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
+}
+
+.card-text {
+    white-space: pre-wrap;
 }
 
 footer {

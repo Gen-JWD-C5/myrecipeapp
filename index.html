@@ -69,7 +69,7 @@
                     class="form-control"
                     placeholder=""
                     aria-label="Recipe name"
-                    
+                    required
                   />
                   <div id="titleErrMsg"></div>
                   <label for="course">Course</label>
@@ -81,9 +81,9 @@
                     required
                   >
                     <option value="">Choose a course</option>
-                    <option value="starter">Starter/Salad</option>
-                    <option value="main">Main</option>
-                    <option value="dessert">Dessert</option>
+                    <option value="Starter">Starter/Salad</option>
+                    <option value="Main">Main</option>
+                    <option value="Dessert">Dessert</option>
                   </select>
                   <div id="courseErrMsg"></div>
                   <label for="serves">Serves</label>
@@ -94,6 +94,7 @@
                     class="form-control"
                     placeholder="Serves"
                     aria-label="Serves"
+                    required
                   />
                   <div id="servesErrMsg"></div>
                 </div>
@@ -114,6 +115,7 @@
                     id="ingredients"
                     name="ingredients"
                     rows="3"
+                    required
                   ></textarea>
                   <div id="ingredientsErrMsg"></div>
                 </div>
@@ -126,6 +128,7 @@
                     id="instructions"
                     name="instructions"
                     rows="3"
+                    required
                   ></textarea>
                   <div id="instructionsErrMsg"></div>
                 </div>
@@ -147,30 +150,28 @@
         <div class="row justify-content-center mt-3 mx-3">
             <!-- Starters column -->
           <div class="col">
-            <h2 class="text-center">Recipes</h2>
-            <ul id="starterCol">
+            <h2 class="text-center">Starters/Salads</h2>
+            <ul id="starterCol"></ul>
                 
             </ul>
           </div>
 
           <!-- Mains column -->
-          <!-- <div class="col">
+          <div class="col">
             <h2 class="text-center">Mains</h2>
-            <ul>
-                <li>
-                </li>
-            </ul>
-          </div> -->
-
-          <!-- Desserts column -->
-          <!-- <div class="col">
-            <h2 class="text-center">Desserts</h2>
-            <ul>
-                <li>
-                </li>
+            <ul id="mainsCol">
+                
             </ul>
           </div>
-        </div> -->
+
+          <!-- Desserts column -->
+          <div class="col">
+            <h2 class="text-center">Desserts</h2>
+            <ul id="dessertCol">
+                
+            </ul>
+          </div>
+        </div>
       
       <!-- end of layout for recipe cards -->
       

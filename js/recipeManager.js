@@ -82,23 +82,22 @@ class RecipeManager {
     };
 
     save(){
-        let recipesJson = JSON.stringify(this.recipes);
+        const recipesJson = JSON.stringify(this._recipes);
         localStorage.setItem("recipes", recipesJson);
-        let currentId = JSON.stringify(this.currentId);
+        const currentId = String(this._currentId);
         localStorage.setItem("currentId", currentId);
     }
 
 
     load(){
-        //check if there are any tasks in localStorage
-        if(localStorage.getItem("recipes")){
-        let recipesJson = localStorage.getItem("recipes");
-        this.recipes = JSON.parse(recipesJson);
+        if (localStorage.getItem("recipes")) {
+            const recipesJson = localStorage.getItem("recipes");
+            this._recipes = JSON.parse(recipesJson);
         }
 
-        if(localStorage.getItem("currentId")){
-        let currentId = localStorage.getItem("currentId");
-        this.currentId = JSON.parse(currentId);
+        if (localStorage.getItem("currentId")) {
+            const currentId = localStorage.getItem("currentId");
+            this._currentId = Number(currentId);
         }
     }
 

@@ -1,5 +1,6 @@
 //initialize recipeManager
 const recipeList = new RecipeManager();
+recipeList.load();
 
 //grab elements that I want to target for validation
 const newRecipeTitle = document.querySelector("#recipeTitle");
@@ -106,6 +107,7 @@ const validFormFieldInput = () => {
     if (validInput === 5) {
             recipeList.addRecipe(newRecipeTitle.value, chooseCourse.value, numServe.value, ingredients.value, instructions.value);
             console.log(recipeList.recipes);
+            recipeList.save();
             recipeList.render();
             validInput = 0;
         } else {

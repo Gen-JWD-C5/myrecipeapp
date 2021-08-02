@@ -1,5 +1,5 @@
-const createRecipeHtml = (title, course, serves, ingredients, instructions) => {
-    const html = `<li>
+const createRecipeHtml = (title, course, serves, ingredients, instructions, id) => {
+    const html = `<li id=${id}>
     <div class="card">
         <img id="cardImage" src="" class="card-img-top" alt="...">
         <div class="card-body">
@@ -11,7 +11,8 @@ const createRecipeHtml = (title, course, serves, ingredients, instructions) => {
             <h5>Instructions:</h5>
             <p class="card-text">${instructions}</p>
             <div class="text-center">
-            <button tyidpe="button" id="deleteBtn" class="btn btn-outline-danger delete-button">Delete</button>
+            <button type="button" id="updateBtn" class="btn btn-outline-warning update-button">Update</button>
+            <button type="button" id="deleteBtn" class="btn btn-outline-danger delete-button">Delete</button>
             </div>
         </div>
     </div>
@@ -58,7 +59,8 @@ class RecipeManager {
                 currentRecipe.course,
                 currentRecipe.serves,
                 currentRecipe.ingredients,
-                currentRecipe.instructions
+                currentRecipe.instructions,
+                currentRecipe.id
             );
             
             if(currentRecipe.course === "Starter") {
@@ -101,7 +103,27 @@ class RecipeManager {
         }
     }
 
+    // getRecipeById(recipeId) {
+    //     let foundRecipe;
+    //     for(let i=0; i<this._recipes.length; i++) {
+    //         const recipe = this._recipes[i];
+    //         if(recipe.id === recipeId) {
+    //             foundRecipe = recipe,
+    //         };
+    //     };
+    //     return foundRecipe;
+    // }
 
+    deleteRecipe(recipeId) {
+        newRecipes = [];
+        for (let i = 0; i < this._recipes.length; i++) {
+            let recipe = this._recipes.length[i];
+            if(recipe.id !== recipeId) {
+                newRecipes.push(recipe);
+                this._recipes = newRecipes;
+            }
+        }
+    }
     
 }
 

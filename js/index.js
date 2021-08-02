@@ -1,12 +1,13 @@
 //initialize recipeManager
 const recipeList = new RecipeManager();
 recipeList.load();
+recipeList.render();
 
 //grab elements that I want to target for validation
-const newRecipeTitle = document.querySelector("#recipeTitle");
+const recipeTitle = document.querySelector("#recipeTitle");
 console.log("name: " + newRecipeTitle.value);
-const chooseCourse = document.querySelector("#course")
-const numServe = document.querySelector("#serves");
+const course = document.querySelector("#course")
+const serves = document.querySelector("#serves");
 console.log("serves: " + numServe.value);
 const chooseImage = document.querySelector("#chooseImage");
 const ingredients = document.querySelector("#ingredients");
@@ -22,7 +23,7 @@ const titleErrMsg = document.querySelector("#titleErrMsg");
 
 const validRecipeName = () => {
     console.log("in valid recipe function")
-    if(newRecipeTitle.value === "" && newRecipeTitle.value.length < 3) {
+    if(recipeTitle.value === "" && recipeTitle.value.length < 3) {
         titleErrMsg.innerHTML = "Add a recipe title";
         titleErrMsg.style.color= "red";
         console.log(titleErrMsg);
@@ -37,7 +38,7 @@ const courseErrMsg = document.querySelector("#courseErrMsg");
 
 const validCourse = () => {
     console.log("in valid course function")
-    if(chooseCourse.value === "") {
+    if(course.value === "") {
         courseErrMsg.innerHTML = "Choose a course";
         courseErrMsg.style.color= "red";
         console.log(courseErrMsg);
@@ -52,7 +53,7 @@ const servesErrMsg = document.querySelector("#servesErrMsg");
 
 const validServes = () => {
     console.log("in valid serves function")
-    if(numServe.value === "") {
+    if(serves.value === "") {
         servesErrMsg.innerHTML = "Add number of serves";
         servesErrMsg.style.color= "red";
         console.log(servesErrMsg);
@@ -105,9 +106,10 @@ submitRecipeBtn.addEventListener("click", () => {
 const validFormFieldInput = () => {
    const form = document.querySelector("#form")
     if (validInput === 5) {
-            recipeList.addRecipe(newRecipeTitle.value, chooseCourse.value, numServe.value, ingredients.value, instructions.value);
+            recipeList.addRecipe(recipeTitle.value, course.value, serves.value, ingredients.value, instructions.value);
             console.log(recipeList.recipes);
             recipeList.save();
+            recipeList.load(),
             recipeList.render();
             validInput = 0;
         } else {
@@ -123,7 +125,7 @@ submitRecipeBtn.addEventListener("click", () => {
 } )
 
 //adding event to delete button 
-// const starterCol = document.querySelector("#starterCol");
+
 
 // starterCol.addEventListener("click", function (e) {
     

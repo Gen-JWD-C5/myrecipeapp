@@ -37,6 +37,7 @@ class RecipeManager {
         }
     
         return this._recipes.push(newRecipe);
+        
     }
 
     get recipes(){
@@ -103,26 +104,26 @@ class RecipeManager {
         }
     }
 
-    // getRecipeById(recipeId) {
-    //     let foundRecipe;
-    //     for(let i=0; i<this._recipes.length; i++) {
-    //         const recipe = this._recipes[i];
-    //         if(recipe.id === recipeId) {
-    //             foundRecipe = recipe,
-    //         };
-    //     };
-    //     return foundRecipe;
-    // }
+    getRecipeById(recipeId) {
+        let foundRecipe;
+        for(let i=0; i<this._recipes.length; i++) {
+            const recipe = this._recipes[i]; //will be an object with recipe info
+            if(recipe.id === recipeId) {
+                foundRecipe = recipe;
+            };
+        };
+        return foundRecipe; // returns recipe object
+    }
 
     deleteRecipe(recipeId) {
-        newRecipes = [];
-        for (let i = 0; i < this._recipes.length; i++) {
-            let recipe = this._recipes.length[i];
+        const newRecipes = [];
+        for(let i=0; i<this._recipes.length; i++) {
+            const recipe = this._recipes[i];
             if(recipe.id !== recipeId) {
                 newRecipes.push(recipe);
-                this._recipes = newRecipes;
             }
-        }
+            this.recipes = newRecipes;
+    };
     }
     
 }

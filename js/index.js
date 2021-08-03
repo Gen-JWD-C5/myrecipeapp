@@ -5,10 +5,10 @@ recipeList.render();
 
 //grab elements that I want to target for validation
 const recipeTitle = document.querySelector("#recipeTitle");
-console.log("name: " + newRecipeTitle.value);
+console.log("name: " + recipeTitle.value);
 const course = document.querySelector("#course")
 const serves = document.querySelector("#serves");
-console.log("serves: " + numServe.value);
+console.log("serves: " + serves.value);
 const chooseImage = document.querySelector("#chooseImage");
 const ingredients = document.querySelector("#ingredients");
 const instructions = document.querySelector("#instructions")
@@ -108,6 +108,7 @@ const validFormFieldInput = () => {
     if (validInput === 5) {
             recipeList.addRecipe(recipeTitle.value, course.value, serves.value, ingredients.value, instructions.value);
             console.log(recipeList.recipes);
+            console.log(recipeList._currentId)
             recipeList.save();
             recipeList.load(),
             recipeList.render();
@@ -126,17 +127,27 @@ submitRecipeBtn.addEventListener("click", () => {
 
 //adding event to delete button 
 
+let recipeContainer = document.querySelector("#recipeContainer");
+recipeContainer.addEventListener('click', (e) => {
+    if(e.target.classList.contains('delete-button')) {
+        const parentRecipe = e.target.parentElement.parentElement.parentElement.parentElement;
+        console.log(parentRecipe)
+    }
+})
 
-// starterCol.addEventListener("click", function (e) {
+
+
+
+
+
+        
+           
     
     
-    
-//     if(e.target.classList === "delete-button") {
-//         console.log("i target the delete button")
-//         const recipeId =number(e.target.parentElement.) 
-//     };
-//     }
-// );
+
+
+
+
 
 
 

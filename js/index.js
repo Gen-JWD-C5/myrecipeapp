@@ -130,10 +130,21 @@ submitRecipeBtn.addEventListener("click", () => {
 let recipeContainer = document.querySelector("#recipeContainer");
 recipeContainer.addEventListener('click', (e) => {
     if(e.target.classList.contains('delete-button')) {
+        console.log('clicked delete btn')
         const parentRecipe = e.target.parentElement.parentElement.parentElement.parentElement;
         console.log(parentRecipe)
+        const recipeId = Number(parentRecipe.id);
+        console.log(`clicked delete btn with id= ${recipeId}`);
+        recipeList.deleteRecipe(recipeId);
+        recipeList.save();
+        recipeList.render();
+    } 
+    if(e.target.classList.contains('update-button')) {
+        const parentRecipe = e.target.parentElement.parentElement.parentElement.parentElement;
+        const recipeId = Number(parentRecipe.id);
+        console.log(`clicked update btn with id= ${recipeId}`)
     }
-})
+});
 
 
 

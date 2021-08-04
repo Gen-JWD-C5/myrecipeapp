@@ -66,10 +66,11 @@ class RecipeManager {
             
             if(currentRecipe.course === "Starter") {
                 startersHtmlList.push(recipeHtml);
-                console.log("Starter")
-                console.log(startersHtmlList)
+                console.log("Starter");
+                console.log(startersHtmlList);
             } else if (currentRecipe.course === "Main") {
                 mainsHtmlList.push(recipeHtml);
+                console.log("Main");
             } else if (currentRecipe.course === "Dessert") {
                 dessertsHtmlList.push(recipeHtml);
             }
@@ -122,10 +123,10 @@ class RecipeManager {
             if(recipe.id !== recipeId) {
                 newRecipes.push(recipe);
             }
-            this.recipes = newRecipes;
+            this._recipes = newRecipes;
     };
     }
-    
+
 }
 
 

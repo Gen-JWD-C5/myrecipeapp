@@ -66,13 +66,14 @@ class RecipeManager {
             
             if(currentRecipe.course === "Starter") {
                 startersHtmlList.push(recipeHtml);
-                console.log("Starter");
-                console.log(startersHtmlList);
+                console.log("Starter")
+                console.log(startersHtmlList)
             } else if (currentRecipe.course === "Main") {
                 mainsHtmlList.push(recipeHtml);
-                console.log("Main");
+                console.log("main")
             } else if (currentRecipe.course === "Dessert") {
                 dessertsHtmlList.push(recipeHtml);
+                console.log('dessert')
             }
         }
         const startersHtml = startersHtmlList.join("\n");
@@ -107,8 +108,7 @@ class RecipeManager {
 
     getRecipeById(recipeId) {
         let foundRecipe;
-        for(let i=0; i<this._recipes.length; i++) {
-            const recipe = this._recipes[i]; //will be an object with recipe info
+        for(let recipe of this._recipes) {
             if(recipe.id === recipeId) {
                 foundRecipe = recipe;
             };
@@ -118,10 +118,10 @@ class RecipeManager {
 
     deleteRecipe(recipeId) {
         const newRecipes = [];
-        for(let i=0; i<this._recipes.length; i++) {
-            const recipe = this._recipes[i];
+        for(let recipe of this._recipes) {
             if(recipe.id !== recipeId) {
                 newRecipes.push(recipe);
+                // console.log(recipe);
             }
             this._recipes = newRecipes;
     };

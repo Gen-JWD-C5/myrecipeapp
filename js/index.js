@@ -5,10 +5,10 @@ recipeList.render();
 
 //grab elements that I want to target for validation
 const recipeTitle = document.querySelector("#recipeTitle");
-console.log("name: " + recipeTitle.value);
+// console.log("name: " + recipeTitle.value);
 const course = document.querySelector("#course")
 const serves = document.querySelector("#serves");
-console.log("serves: " + serves.value);
+// console.log("serves: " + serves.value);
 const chooseImage = document.querySelector("#chooseImage");
 const ingredients = document.querySelector("#ingredients");
 const instructions = document.querySelector("#instructions")
@@ -22,7 +22,7 @@ let validInput = 0;
 const titleErrMsg = document.querySelector("#titleErrMsg");
 
 const validRecipeName = () => {
-    console.log("in valid recipe function")
+    // console.log("in valid recipe function")
     if(recipeTitle.value === "" && recipeTitle.value.length < 3) {
         titleErrMsg.innerHTML = "Add a recipe title";
         titleErrMsg.style.color= "red";
@@ -37,7 +37,7 @@ const validRecipeName = () => {
 const courseErrMsg = document.querySelector("#courseErrMsg");
 
 const validCourse = () => {
-    console.log("in valid course function")
+    // console.log("in valid course function")
     if(course.value === "") {
         courseErrMsg.innerHTML = "Choose a course";
         courseErrMsg.style.color= "red";
@@ -52,7 +52,7 @@ const validCourse = () => {
 const servesErrMsg = document.querySelector("#servesErrMsg");
 
 const validServes = () => {
-    console.log("in valid serves function")
+    // console.log("in valid serves function")
     if(serves.value === "") {
         servesErrMsg.innerHTML = "Add number of serves";
         servesErrMsg.style.color= "red";
@@ -67,7 +67,7 @@ const validServes = () => {
 const ingredientsErrMsg = document.querySelector("#ingredientsErrMsg");
 
 const validIngredients = () => {
-    console.log("in valid ingredients function")
+    // console.log("in valid ingredients function")
     if(ingredients.value === ""  || ingredients.value.length < 5) {
         ingredientsErrMsg.innerHTML = "Add ingredients";
         ingredientsErrMsg.style.color= "red";
@@ -82,7 +82,7 @@ const validIngredients = () => {
 const instructionsErrMsg = document.querySelector("#instructionsErrMsg");
 
 const validInstructions = () => {
-    console.log("in valid instructions function")
+    // console.log("in valid instructions function")
     if(instructions.value.length < 5 || instructions.value === "") {
         instructionsErrMsg.innerHTML = "Add instructions";
         instructionsErrMsg.style.color= "red";
@@ -145,11 +145,6 @@ recipeContainer.addEventListener('click', (e) => {
         console.log(`clicked update btn with id= ${recipeId}`)
     }
 });
-
-
-
-
-
 
         
            

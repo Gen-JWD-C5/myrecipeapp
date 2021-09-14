@@ -9,12 +9,13 @@ const recipeTitle = document.querySelector("#recipeTitle");
 const course = document.querySelector("#course")
 const serves = document.querySelector("#serves");
 // console.log("serves: " + serves.value);
-const chooseImage = document.querySelector("#chooseImage");
 const ingredients = document.querySelector("#ingredients");
 const instructions = document.querySelector("#instructions")
 
 // grab submit button to use for event listener
 const submitRecipeBtn = document.querySelector("#submitRecipe");
+const updateRecipeBtn = document.querySelector("#updateRecipe");
+updateRecipeBtn.style.display= 'none';
 
 let validInput = 0;
 
@@ -93,6 +94,8 @@ const validInstructions = () => {
     }
 };
 
+
+
 // add a click event on submit button that checks all validation functions
 submitRecipeBtn.addEventListener("click", () => {
     validRecipeName();
@@ -108,7 +111,8 @@ const validFormFieldInput = () => {
     if (validInput === 5) {
             recipeList.addRecipe(recipeTitle.value, course.value, serves.value, ingredients.value, instructions.value);
             console.log(recipeList.recipes);
-            console.log(recipeList._currentId)
+            console.log(recipeList._currentId);
+            
             recipeList.save();
             recipeList.load(),
             recipeList.render();
@@ -124,6 +128,27 @@ const validFormFieldInput = () => {
 submitRecipeBtn.addEventListener("click", () => {
     validFormFieldInput();
 } )
+
+// adding existing info to card when update button is called
+let populatedRecipeForm = (recipe) => {
+    recipeTitle.value = recipe.title;
+    course.value = recipe.course;
+    serves.value = recipe.serves;
+    ingredients.value = recipe.ingredients;
+    instructions.value = recipe.instructions;
+}
+
+// function to update recipeCard
+let updateRecipeArray = () => {
+    if(validInput === 5) {
+        recipeList.updateRecipe(recipeId.value, recipeTitle.value, course.value, serves.value, ingredients.value, instructions.value);
+        
+        recipeList.save();
+        recipeList.render();
+
+    }
+}
+
 
 //adding event to delete button 
 
@@ -142,12 +167,19 @@ recipeContainer.addEventListener('click', (e) => {
     if(e.target.classList.contains('update-button')) {
         const parentRecipe = e.target.parentElement.parentElement.parentElement.parentElement;
         const recipeId = Number(parentRecipe.id);
-        console.log(`clicked update btn with id= ${recipeId}`)
+        console.log(`clicked update btn with id= ${recipeId}`);
+        updateRecipeBtn.style.display = "block";
+        submitRecipeBtn.style.display = "none";
+        let recipe = recipeList.getRecipeById(recipeId);
+        populatedRecipeForm(recipe);
+        updateRecipeArray();
+        
     }
 });
 
-        
-           
+
+
+
     
     
 

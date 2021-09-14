@@ -31,6 +31,7 @@
         <h2 class="d-inline">My Recipe App</h2>
       </div>
       <!-- end logo -->
+
       <!-- button to add recipes -->
       <div class="col d-inline text-end mt-3">
         <button
@@ -99,10 +100,7 @@
                   <div id="servesErrMsg"></div>
                 </div>
                 
-                  <div class="mb-3">
-                    <label for="formFile" class="form-label">Choose an image</label>
-                    <input class="form-control" type="file" id="formFile">
-                  </div>
+                  
                 
               </div>
               <div>
@@ -135,6 +133,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" id="updateRecipe" class="btn btn-secondary" data-bs-dismiss="modal">Update</button>
                 <button type="button" id="submitRecipe" class="btn btn-primary" value="submit">Save recipe</button>
               </div>
             </form>

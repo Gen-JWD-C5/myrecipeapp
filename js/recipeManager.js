@@ -1,7 +1,7 @@
-const createRecipeHtml = (title, course, serves, ingredients, instructions, id) => {
+const createRecipeHtml = (title, course, serves, src, ingredients, instructions, id) => {
     const html = `<li id=${id}>
     <div class="card">
-        <img id="cardImage" src="" class="card-img-top" alt="...">
+        
         <div class="card-body">
             <h5 class="card-title">${title}</h5>
             <h5>${course}</h5>
@@ -11,7 +11,10 @@ const createRecipeHtml = (title, course, serves, ingredients, instructions, id) 
             <h5>Instructions:</h5>
             <p class="card-text">${instructions}</p>
             <div class="text-center">
-            <button type="button" id="updateBtn" class="btn btn-outline-warning update-button">Update</button>
+            <button type="button" id="updateBtn" class="btn btn-outline-warning update-button" 
+            data-bs-toggle="modal"
+          data-bs-target="#modal"
+        >Update</button>
             <button type="button" id="deleteBtn" class="btn btn-outline-danger delete-button">Delete</button>
             </div>
         </div>
@@ -32,12 +35,12 @@ class RecipeManager {
             title: title,
             course: course,
             serves: serves,
+            
             ingredients: ingredients,
             instructions: instructions
         }
     
         return this._recipes.push(newRecipe);
-        
     }
 
     get recipes(){
@@ -59,6 +62,7 @@ class RecipeManager {
                 currentRecipe.title,
                 currentRecipe.course,
                 currentRecipe.serves,
+                
                 currentRecipe.ingredients,
                 currentRecipe.instructions,
                 currentRecipe.id
@@ -127,7 +131,31 @@ class RecipeManager {
     };
     }
 
-}
+    updateRecipe(id, title, course, serves, ingredients, instructions) {
+        // 1. open modal with existing information
+        // let recipeToBeUpdated = this.getRecipeById(id);
+        const updateRecipe = {
+            id: id,
+            title: title,
+            course: course,
+            serves: serves,
+            ingredients: ingredients,
+            instructions: instructions
+        }
+    
+        return this._recipes.push(updateRecipe);
+    }
+
+        }
+    
+        
+        
+            
+            
+        
+    
+
+
 
 
 
